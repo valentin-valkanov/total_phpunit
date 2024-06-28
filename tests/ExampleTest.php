@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-
+namespace App\Tests;
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
-    public  function testThatTwoStringsAreTheSame()
+    public  function testTwoStringsAreTheSame()
     {
         $string1 = 'garyclarketech';
         $string2 = 'garyclarketek';
@@ -11,7 +11,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($string1 == $string2);
     }
 
-    public function testProductFunction()
+    public function testProductIsCalculatedCorrectly()
     {
         require 'example-functions.php';
         $product = product(10, 2);

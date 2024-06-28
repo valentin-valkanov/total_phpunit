@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-
+namespace App\Tests;
 use PHPUnit\Framework\TestCase;
-use src\Cart;
+use App\Cart;
 
-class testCart extends TestCase
+class CartTest extends TestCase
 {
     public function testGetNetPriceIsCalculatedCorrectly()
     {
         //Setup
-        require 'src/Cart.php';
+
         $cart = new Cart();
         $cart->price = 10;
 
