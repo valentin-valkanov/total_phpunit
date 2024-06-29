@@ -9,19 +9,13 @@ class CartTest extends TestCase
     protected $cart;
     protected function setUp(): void
     {
+        Cart::setTax(1.2);
         $this->cart = new Cart();
     }
 
-    public function testGetNetPriceIsCalculatedCorrectly()
+    protected function tearDown(): void
     {
-        //Setup
-        $this->cart->price = 10;
-
-        //Do Something
-        $netPrice = $this->cart->getNetPrice();
-
-        //Make Assertions
-        $this->assertEquals(12, $netPrice);
+//        Cart::setTax(1.2);
     }
 
     public function testTheCartTaxValueCanBeChangedStatically()
@@ -38,5 +32,15 @@ class CartTest extends TestCase
         $this->assertEquals(15, $netPrice);
     }
 
+    public function testGetNetPriceIsCalculatedCorrectly()
+    {
+        //Setup
+        $this->cart->price = 10;
 
+        //Do Something
+        $netPrice = $this->cart->getNetPrice();
+
+        //Make Assertions
+        $this->assertEquals(12, $netPrice);
+    }
 }
