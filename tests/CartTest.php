@@ -22,7 +22,7 @@ class CartTest extends TestCase
     {
         //Setup
 
-        $this->cart->price = 10;
+        $this->cart->setPrice(10);
 
         //Do something
         Cart::setTax(1.5);
@@ -35,7 +35,7 @@ class CartTest extends TestCase
     public function testGetNetPriceIsCalculatedCorrectly()
     {
         //Setup
-        $this->cart->price = 10;
+        $this->cart->setPrice(10);
 
         //Do Something
         $netPrice = $this->cart->getNetPrice();
