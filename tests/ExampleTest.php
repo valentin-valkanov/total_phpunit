@@ -1,7 +1,11 @@
 <?php declare(strict_types=1);
 
 namespace App\Tests;
+
+require 'example-functions.php';
+
 use App\Cart;
+use PHPUnit\Framework\Attributes\DataProvider;
 use function PHPUnit\Framework\assertEquals;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
@@ -16,12 +20,29 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
 
     public function testProductIsCalculatedCorrectly()
     {
-        require 'example-functions.php';
         $product = product(10, 2);
 
         $this->assertEquals(20, $product);
         $this->assertNotEquals(10, $product);
     }
+
+    #[DataProvider('quotientProvider')]
+    public function testQuotientIsCalculatedCorrectly($a, $b, $expected)
+    {
+        $quotient = quotient($a, $b);
+
+        $this->assertSame($expected, $quotient);
+    }
+
+    public static function quotientProvider(): array
+    {
+        return [
+           '9_by_3'=> [9, 3, 3],
+           '72_by_9' => [72, 9, 8],
+           'division_byZero' => [20, 0, 20]
+        ];
+    }
+
     public function testSomeAssertions()
     {
         //Demo static vs $this
