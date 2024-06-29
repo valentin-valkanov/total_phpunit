@@ -6,17 +6,37 @@ use App\Cart;
 
 class CartTest extends TestCase
 {
+    protected $cart;
+    protected function setUp(): void
+    {
+        $this->cart = new Cart();
+    }
+
     public function testGetNetPriceIsCalculatedCorrectly()
     {
         //Setup
-
-        $cart = new Cart();
-        $cart->price = 10;
+        $this->cart->price = 10;
 
         //Do Something
-        $netPrice = $cart->getNetPrice();
+        $netPrice = $this->cart->getNetPrice();
 
         //Make Assertions
         $this->assertEquals(12, $netPrice);
     }
+
+    public function testTheCartTaxValueCanBeChangedStatically()
+    {
+        //Setup
+
+        $this->cart->price = 10;
+
+        //Do something
+        Cart::setTax(1.5);
+        $netPrice = $this->cart->getNetPrice();
+
+        //Make Assertions
+        $this->assertEquals(15, $netPrice);
+    }
+
+
 }
