@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 use App\Cart;
+use function PHPUnit\Framework\assertEquals;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
@@ -59,6 +60,8 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
 
         //assertIsArray
         $this->assertIsArray($testArray);
+
+        $this->assertEquals('localhost', URL);
 
 
     }
