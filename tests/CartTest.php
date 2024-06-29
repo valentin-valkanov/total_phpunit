@@ -43,4 +43,14 @@ class CartTest extends TestCase
         //Make Assertions
         $this->assertEquals(12, $netPrice);
     }
+
+    public function testErrorHappensWhenPriceIsSetAsString(): void
+    {
+        try {
+            $this->cart->setPrice('5.99');
+            $this->fail('Price must be a float');
+        } catch (\Throwable $throwable) {
+            $this->assertStringContainsString('must be of type float', $throwable->getMessage());
+        }
+    }
 }
