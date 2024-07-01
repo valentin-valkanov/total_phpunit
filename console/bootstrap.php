@@ -1,6 +1,8 @@
 <?php // console/bootstrap.php (version2 updated May 2023)
+use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\ORMSetup;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpClient\HttpClient;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -11,7 +13,7 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
 );
 
 // database configuration parameters
-$conn = \Doctrine\DBAL\DriverManager::getConnection([
+$conn = DriverManager::getConnection([
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => '',
@@ -25,6 +27,6 @@ $entityManager = new EntityManager($conn, $config);
 // This should ideally be stored elsewhere...be sure not to push this file to a public repo
 $bearerToken = 'Bearer <YOUR FAKE TOKEN GOES HERE>';
 
-$httpClient = \Symfony\Component\HttpClient\HttpClient::create([
+$httpClient = HttpClient::create([
     'headers' => ['Authorization' => $bearerToken]
 ]);
