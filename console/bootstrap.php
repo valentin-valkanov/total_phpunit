@@ -22,13 +22,8 @@ $conn = DriverManager::getConnection([
 ], $config);
 
 // obtaining the entity manager
-try {
     $entityManager = new EntityManager($conn, $config);
-    echo "EntityManager setup successfully.\n";
-} catch (Exception $e) {
-    echo "Failed to setup EntityManager: " . $e->getMessage() . "\n";
-    exit(1);
-}
+
 
 // This should ideally be stored elsewhere...be sure not to push this file to a public repo
 $bearerToken = 'Bearer <YOUR FAKE TOKEN GOES HERE>';
