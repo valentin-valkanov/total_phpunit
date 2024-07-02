@@ -6,7 +6,11 @@ use App\Http\TwitterClient;
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/bootstrap.php';
-$entityManager = new EntityManager($conn, $config);
+
+if (!$httpClient) {
+    echo "EntityManager is not set up correctly.";
+    exit(1);
+}
 $applicationClient = new SymfonyHttpApplicationClient($httpClient);
 $twitterClient = new TwitterClient($applicationClient);
 
