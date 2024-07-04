@@ -11,11 +11,7 @@ class TwitterStatisticsCalculator
     {
     }
 
-    public function newFollowersPerWeek(
-        ?TwitterAccount $lastRecord,
-        int $currentFollowerCount,
-        \DateTimeInterface $checkDate
-    ): int
+    public function newFollowersPerWeek(?TwitterAccount $lastRecord, int $currentFollowerCount, \DateTimeInterface $checkDate): int
     {
         if (!$lastRecord) {
             return 0;
