@@ -13,6 +13,7 @@ class TwitterClient
 
     private const API_V2_URL = 'https://api.twitter.com/2/';
 
+    /**retrieves user information from Twitter's API using the user's account ID */
     public function getUserById($accountId): array
     {
         $url = self::API_V2_URL . 'users/' . $accountId . '?user.fields=public_metrics';
