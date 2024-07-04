@@ -35,4 +35,16 @@ class TwitterStatisticsCalculatorTest extends TestCase
         //Make Assertions
         $this->assertSame(19, $newFollowersPerWeek);
     }
+
+    /** @test */
+    public function newFollowersPerWeek_returns_0_when_last_record_is_null()
+    {
+        //Setup
+        $twitterStatisticsCalculator = new TwitterStatisticsCalculator(new DateHelper());
+        //Do Something
+        $newFollowersPerWeek = $twitterStatisticsCalculator->newFollowersPerWeek(null, 1000, date_create('2021-01-01'));
+
+        //Make Assertions
+        $this->assertSame(0, $newFollowersPerWeek);
+    }
 }
