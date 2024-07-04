@@ -4,6 +4,8 @@ namespace App\Command;
 
 use App\Http\TwitterClient;
 use App\Entity\TwitterAccount;
+use App\Statistics\TwitterStatisticsCalculator;
+use App\Utility\DateHelper;
 use Doctrine\ORM\EntityManagerInterface;
 
 class UpdateFollowersCommand
@@ -32,12 +34,10 @@ class UpdateFollowersCommand
 
             // 2. Calculate number of new followers per week since last check
             $repo = $this->entityManager->getRepository(TwitterAccount::class);
+            $lastRecord = $repo->lastRecord($accountId);
 
-            $newFollowersPerWeek = $repo->newFollowersPerWeek(
-                $accountId,
-                $user['public_metrics']['followers_count'],
-                date_create()
-            );
+            $newFollowersPerWeek = (new TwitterStatisticsCalculator(new DateHelper()))
+                ->newFollowersPerWeek($lastRecord, $user['public_metrics']['followers_count'], date_create());
 
             // 3. Create a new record in DB with updated values
             $twitterAccount = new TwitterAccount();
