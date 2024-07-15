@@ -14,4 +14,10 @@
         </testsuite>
     </testsuites>
 
+    <groups>
+        <exclude>
+            <group>external</group>
+        </exclude>
+    </groups>
+
 </phpunit>

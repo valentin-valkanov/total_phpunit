@@ -20,11 +20,11 @@ class UserTest extends TestCase
     public function testExceptionThrownIfPasswordContainsExcludedChars(): void
     {
         try {
-
+            //Arrange
             $user = new User();
-
+            //Act
             $user->setPassword('p@55w0rd');
-
+            //Assert
             $this->fail('A InvalidArgumentException should have been thrown');
 
         } catch (\InvalidArgumentException $exception) {

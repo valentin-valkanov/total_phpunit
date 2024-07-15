@@ -26,7 +26,7 @@ $conn = DriverManager::getConnection([
 
 
 // This should ideally be stored elsewhere...be sure not to push this file to a public repo
-$bearerToken = 'Bearer <YOUR FAKE TOKEN GOES HERE>';
+$bearerToken = 'Bearer <AAAAAAAAAAAAAAAAAAAAAHVQuwEAAAAAVYj6XCrLuMp9teoEuaPiU9vpzgY%3DDY6pCIOcW1Nt9kdRULC8m0oDGOMO17ujKe4JfnrCatakkCPO1p>';
 
 $httpClient = HttpClient::create([
     'headers' => ['Authorization' => $bearerToken]
