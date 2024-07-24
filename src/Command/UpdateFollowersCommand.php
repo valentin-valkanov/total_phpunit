@@ -40,15 +40,7 @@ class UpdateFollowersCommand
                 ->newFollowersPerWeek($lastRecord, $user['public_metrics']['followers_count'], date_create());
 
             // 3. Create a new record in DB with updated values
-            $twitterAccount = new TwitterAccount();
-            $twitterAccount->setTwitterAccountId($accountId);
-            $twitterAccount->setUsername($user['username']);
-            $twitterAccount->setTweetCount($user['public_metrics']['tweet_count']);
-            $twitterAccount->setListedCount($user['public_metrics']['listed_count']);
-            $twitterAccount->setFollowingCount($user['public_metrics']['following_count']);
-            $twitterAccount->setFollowerCount($user['public_metrics']['followers_count']);
-            $twitterAccount->setFollowersPerWeek($newFollowersPerWeek);
-            $this->entityManager->persist($twitterAccount);
+            $repo->addFromArray($user);
         }
 
         $this->entityManager->flush();
