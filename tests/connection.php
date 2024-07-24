@@ -11,9 +11,7 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
     isDevMode: true,
 );
 
-$connection = DriverManager::getConnection([
-    'url' => 'sqlite:///:memory:'
-], $config);
+$connection = DriverManager::getConnection(['url' => 'sqlite:///:memory:'], $config);
 
 // obtaining the entity manager
 $entityManager = new EntityManager($connection, $config);

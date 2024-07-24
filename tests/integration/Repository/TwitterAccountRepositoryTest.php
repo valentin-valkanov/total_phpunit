@@ -45,6 +45,18 @@ class TwitterAccountRepositoryTest extends DatabaseDependantTestCase
     }
 
 
+    public function testLastRecordReturnsNullWhenNoRecordsFound()
+    {
+        //Arrange
+        $accountId = 99999;
+
+        //Act
+        $lastRecord = $this->repository->lastRecord($accountId);
+
+        //Assert
+        $this->assertNull($lastRecord);
+    }
+
 
 
 
