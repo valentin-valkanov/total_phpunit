@@ -58,6 +58,5 @@ class UpdateFollowersCommandTest extends DatabaseDependantTestCase
             $twitterClient,
             $accountIds
         );
-
     }
 }
