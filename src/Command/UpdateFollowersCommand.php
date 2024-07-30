@@ -13,16 +13,19 @@ class UpdateFollowersCommand
     private array $accountIds;
     private TwitterClient $twitterClient;
     private EntityManagerInterface $entityManager;
+    private \DateTimeInterface $processDate;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         TwitterClient $twitterClient,
-        array $accountIds
+        array $accountIds,
+        \DateTimeInterface $processDate
     )
     {
         $this->entityManager = $entityManager;
         $this->twitterClient = $twitterClient;
         $this->accountIds = $accountIds;
+        $this->processDate = $processDate;
     }
 
     public function execute(): void
@@ -37,7 +40,9 @@ class UpdateFollowersCommand
             $lastRecord = $repo->lastRecord($accountId);
 
             $newFollowersPerWeek = (new TwitterStatisticsCalculator(new DateHelper()))
-                ->newFollowersPerWeek($lastRecord, $user['public_metrics']['followers_count'], date_create());
+                ->newFollowersPerWeek(
+                    $lastRecord, $user['public_metrics']['followers_count'], $this->processDate
+                );
 
             // 3. Create a new record in DB with updated values
             $repo->addFromArray($user);

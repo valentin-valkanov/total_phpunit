@@ -12,7 +12,9 @@ class UpdateFollowersCommandTest extends DatabaseDependantTestCase
 {
     private const GCT_ID = 12345;
     private const PHPUNIT_ID = 54321;
-    public function testTheUpdateFollowersProcessCompletesCorrectly()
+
+    /** @test */
+    public function the_update_followers_process_completes_correctly(): void
     {
         /********************************** SETUP **********************************/
 
@@ -47,7 +49,6 @@ class UpdateFollowersCommandTest extends DatabaseDependantTestCase
             ->will($this->onConsecutiveCalls(
                 '{"data":{"public_metrics":{"followers_count":500,"following_count":100,"tweet_count":100,"listed_count":100},"name":"Gary Clarke","id":'
                 . self::GCT_ID . ',"username":"garyclarketech"}}',
-
                 '{"data":{"public_metrics":{"followers_count":2000,"following_count":100,"tweet_count":100,"listed_count":100},"name":"PHPUnit","id":'
                 . self::PHPUNIT_ID . ',"username":"phpunit"}}'
             ));
@@ -56,7 +57,35 @@ class UpdateFollowersCommandTest extends DatabaseDependantTestCase
         $updateFollowersCommand = new UpdateFollowersCommand(
             $this->entityManager,
             $twitterClient,
-            $accountIds
+            $accountIds,
+            date_create_immutable('2022-01-01')
         );
+
+
+        /********************************** DO SOMETHING **********************************/
+
+        $updateFollowersCommand->execute();
+
+        /********************************** MAKE ASSERTIONS *****************************/
+
+        $this->assertDatabaseHasEntity(TwitterAccount::class, [
+            'twitterAccountId' => self::GCT_ID,
+            'username'         => $gctAccount->getUsername(),
+            'tweetCount'       => 100,
+            'listedCount'      => 100,
+            'followingCount'   => 100,
+            'followerCount'    => 500,
+            'followersPerWeek' => 7
+        ]);
+
+        $this->assertDatabaseHasEntity(TwitterAccount::class, [
+            'twitterAccountId' => self::PHPUNIT_ID,
+            'username'         => $phpUnitAcct->getUsername(),
+            'tweetCount'       => 100,
+            'listedCount'      => 100,
+            'followingCount'   => 100,
+            'followerCount'    => 2000,
+            'followersPerWeek' => 19
+        ]);
     }
 }
