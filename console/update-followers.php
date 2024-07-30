@@ -7,13 +7,14 @@ use App\Http\TwitterClient;
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/bootstrap.php';
 
-$applicationClient = new SymfonyHttpApplicationClient($httpClient);
-$twitterClient = new TwitterClient($applicationClient);
+$applicationClient = new \App\Http\SymfonyHttpApplicationClient($httpClient);
+$twitterClient = new \App\Http\TwitterClient($applicationClient);
 
-$command = new UpdateFollowersCommand(
+$command = new \App\Command\UpdateFollowersCommand(
     $entityManager,
     $twitterClient,
-    [19057969, 1285294171033604101]
+    [19057969, 1285294171033604101],
+    date_create_immutable()
 );
 
 $command->execute();
