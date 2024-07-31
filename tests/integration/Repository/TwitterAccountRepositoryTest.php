@@ -75,6 +75,7 @@ class TwitterAccountRepositoryTest extends DatabaseDependantTestCase
         $this->repository->addFromArray($userData);
         $this->entityManager->flush();
 
+        //Assert
         $this->assertDatabaseHasEntity(TwitterAccount::class, [
             'twitterAccountId' => $userData['id'],
             'followersPerWeek' => $userData['new_followers_per_week'],
