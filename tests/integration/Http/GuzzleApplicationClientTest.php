@@ -4,11 +4,12 @@ namespace App\Tests\integration\Http;
 
 use App\Http\ApplicationClientException;
 use App\Http\GuzzleApplicationClient;
-use App\Http\SymfonyHttpApplicationClient;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpClient\HttpClient;
 
+/**
+ * @group external
+ */
 class GuzzleApplicationClientTest extends TestCase
 {
     private const PHPUNIT_ID = 19057969;

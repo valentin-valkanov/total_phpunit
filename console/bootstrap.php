@@ -28,6 +28,6 @@ $conn = DriverManager::getConnection([
 // This should ideally be stored elsewhere...be sure not to push this file to a public repo
 $bearerToken = 'Bearer AAAAAAAAAAAAAAAAAAAAAFrkuwEAAAAAcErr1rfqkwnf1Ki%2Bq3XityTJeDo%3DW1xL72z1wDpSAWJv6zIWIt0LxVFD9rL0wumMKTHCpjALqunb26';
 
-$httpClient = HttpClient::create([
+$httpClient = new \GuzzleHttp\Client([
     'headers' => ['Authorization' => $bearerToken]
 ]);
