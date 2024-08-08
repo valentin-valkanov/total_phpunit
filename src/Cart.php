@@ -7,14 +7,14 @@ class Cart
     private float $price;
     private static float $tax = 1.2;
 
-    public function getNetPrice()
+    public function getNetPrice(): float
     {
         return $this->price * self::$tax;
     }
 
-    public static function setTax($tax)
+    public static function setTax(float $tax): float
     {
-         self::$tax = $tax;
+         return self::$tax = $tax;
     }
 
     public function setPrice(float $price): void
