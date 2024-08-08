@@ -6,17 +6,20 @@ use App\Utility\ArrayHelper;
 
 class TwitterClient
 {
-    private ApplicationClientInterface $applicationClient;
 
-    public function __construct(ApplicationClientInterface $applicationClient)
+    public function __construct(
+        private ApplicationClientInterface $applicationClient
+    )
     {
-        $this->applicationClient = $applicationClient;
     }
-
     private const API_V2_URL = 'https://api.twitter.com/2/';
 
     /**retrieves user information from Twitter's API using the user's account ID */
-    public function getUserById($accountId): array
+    /**
+     * @param int $accountId
+     * @return array<mixed>
+     */
+    public function getUserById(int $accountId): array
     {
         $url = self::API_V2_URL . 'users/' . $accountId . '?user.fields=public_metrics';
 

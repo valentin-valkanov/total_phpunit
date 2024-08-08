@@ -16,13 +16,11 @@ class GuzzleApplicationClient implements ApplicationClientInterface
 
             $response = $this->httpClient->request('GET', $url);
 
-            return $response->getBody();
+            return (string) $response->getBody();
 
         } catch (\Exception $exception) {
 
             throw new ApplicationClientException($exception->getMessage());
         }
-
-
     }
 }

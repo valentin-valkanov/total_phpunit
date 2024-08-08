@@ -25,7 +25,7 @@ readonly class UpdateFollowersCommand
     {
     }
 
-    public function execute()
+    public function execute(): void
     {
         foreach ($this->accountIds as $accountId) {
 

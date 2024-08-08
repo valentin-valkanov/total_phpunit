@@ -1,0 +1,171 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Class App\\\\Repository\\\\TwitterAccountRepository extends generic class Doctrine\\\\ORM\\\\EntityRepository but does not specify its types\\: TEntityClass$#"
+			count: 1
+			path: src/Repository/TwitterAccountRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\TwitterAccountRepository\\:\\:addFromArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Repository/TwitterAccountRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\TwitterAccountRepository\\:\\:addFromArray\\(\\) has parameter \\$userData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/TwitterAccountRepository.php
+
+		-
+			message: "#^Property App\\\\User\\:\\:\\$password is never read, only written\\.$#"
+			count: 1
+			path: src/User.php
+
+		-
+			message: "#^Method App\\\\Utility\\\\ArrayHelper\\:\\:flatten\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utility/ArrayHelper.php
+
+		-
+			message: "#^Method App\\\\Utility\\\\ArrayHelper\\:\\:flatten\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utility/ArrayHelper.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\CartTest\\:\\:testGetNetPriceIsCalculatedCorrectly\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/CartTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\CartTest\\:\\:testTheCartTaxValueCanBeChangedStatically\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/CartTest.php
+
+		-
+			message: "#^Property App\\\\Tests\\\\CartTest\\:\\:\\$cart has no type specified\\.$#"
+			count: 1
+			path: tests/CartTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\DatabaseDependantTestCase\\:\\:assertDatabaseHasEntity\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/DatabaseDependantTestCase.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\DatabaseDependantTestCase\\:\\:assertDatabaseHasEntity\\(\\) has parameter \\$criteria with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/DatabaseDependantTestCase.php
+
+		-
+			message: "#^Unable to resolve the template type T in call to method Doctrine\\\\ORM\\\\EntityManagerInterface\\:\\:getRepository\\(\\)$#"
+			count: 1
+			path: tests/DatabaseDependantTestCase.php
+
+		-
+			message: "#^Variable \\$entityManager might not be defined\\.$#"
+			count: 2
+			path: tests/DatabaseDependantTestCase.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:quotientProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testProductIsCalculatedCorrectly\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testQuotientIsCalculatedCorrectly\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testQuotientIsCalculatedCorrectly\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testQuotientIsCalculatedCorrectly\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testQuotientIsCalculatedCorrectly\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testSomeAssertions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\ExampleTest\\:\\:testTwoStringsAreTheSame\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/ExampleTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Http\\\\TwitterClientTest\\:\\:getUserById_returns_correctly_formatted_user_data\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Http/TwitterClientTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\SchemaLoader\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/SchemaLoader.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Statistics\\\\TwitterStatisticsCalculatorTest\\:\\:newFollowersPerWeek_calculates_the_correct_value\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Statistics/TwitterStatisticsCalculatorTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Statistics\\\\TwitterStatisticsCalculatorTest\\:\\:newFollowersPerWeek_returns_0_when_last_record_is_null\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Statistics/TwitterStatisticsCalculatorTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Utility\\\\ArrayHelperTest\\:\\:testTheFlattenMethodReturnsFlattenedArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Utility/ArrayHelperTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\Utility\\\\DateHelperTest\\:\\:weeks_between_dates_is_calculated_correctly\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/Utility/DateHelperTest.php
+
+		-
+			message: "#^Function product\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/example-functions.php
+
+		-
+			message: "#^Function product\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: tests/example-functions.php
+
+		-
+			message: "#^Function product\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: tests/example-functions.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\integration\\\\ExampleIntegrationTest\\:\\:testIntegrationsWork\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/ExampleIntegrationTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\integration\\\\Repository\\\\TwitterAccountRepositoryTest\\:\\:testAddFromArrayCanPersistNewTwitterAccountEntities\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/Repository/TwitterAccountRepositoryTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\integration\\\\Repository\\\\TwitterAccountRepositoryTest\\:\\:testLastRecordReturnsNullWhenNoRecordsFound\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/Repository/TwitterAccountRepositoryTest.php
+
+		-
+			message: "#^Method App\\\\Tests\\\\integration\\\\Repository\\\\TwitterAccountRepositoryTest\\:\\:testLastRecordReturnsTheCorrectTwitterAccountEntity\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/Repository/TwitterAccountRepositoryTest.php
